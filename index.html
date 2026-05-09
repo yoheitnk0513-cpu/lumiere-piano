@@ -520,14 +520,99 @@
       color: var(--pink-dark);
     }
 
+    .price-simple-wrap { max-width: 560px; margin: 0 auto; }
+
+    .price-simple-card {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 52px 40px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .price-simple-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .price-simple-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .price-simple-amount span {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      display: block;
+      margin-top: 8px;
+      font-family: 'Noto Serif JP', serif;
+      letter-spacing: 0.05em;
+    }
+
+    .price-simple-note {
+      font-size: 0.82rem;
+      opacity: 0.82;
+      line-height: 1.9;
+    }
+
     .price-caption {
-      margin-top: 22px;
       font-size: 0.82rem;
       color: var(--brown-light);
       line-height: 2;
     }
 
     .price-caption li { margin-left: 1.2em; list-style: disc; }
+
+    /* ===== CONTACT METHODS ===== */
+    .contact-methods { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+
+    .contact-method-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 28px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-method-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,122,138,0.2); }
+
+    .contact-line { background: #06C755; color: var(--white); }
+    .contact-tel  { background: var(--white); color: var(--charcoal); border: 1.5px solid var(--pink-light); }
+
+    .contact-method-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-tel .contact-method-icon { background: var(--pink-pale); color: var(--pink-deep); }
+
+    .contact-method-text { flex: 1; }
+
+    .contact-method-label { display: block; font-size: 1rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 3px; }
+    .contact-method-sub   { display: block; font-size: 0.82rem; opacity: 0.8; }
+    .contact-tel .contact-method-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; opacity: 1; color: var(--pink-deep); }
+
+    .contact-method-arrow { font-size: 1.2rem; opacity: 0.6; }
+
+    .contact-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--brown-light);
+      line-height: 1.9;
+    }
 
     /* ===== TEACHER ===== */
     #teacher { background: linear-gradient(180deg, var(--rose-bg) 0%, var(--white) 100%); }
@@ -1064,36 +1149,39 @@
       <div class="lessons-grid">
         <div class="lesson-card fade-in">
           <span class="lesson-icon">🎹</span>
-          <h3>子どもピアノコース</h3>
-          <span class="lesson-en">Children's Course</span>
+          <h3>ピアノコース</h3>
+          <span class="lesson-en">Piano Course</span>
           <p>
-            音楽を好きになることを第一に、遊びながら
-            音楽の基礎を身につけます。ソルフェージュや
-            リズムトレーニングも取り入れ、豊かな音楽性を育てます。
+            年42回のレッスンで、着実に上達できるカリキュラム。
+            基礎からしっかり身につけながら、
+            一人ひとりの「弾きたい」に寄り添います。
+            お子さまから大人の方まで幅広く対応。
           </p>
-          <span class="lesson-age">対象：3歳〜中学生</span>
+          <span class="lesson-age">年42回・子ども〜大人</span>
         </div>
         <div class="lesson-card fade-in">
-          <span class="lesson-icon">🎶</span>
-          <h3>大人ピアノコース</h3>
-          <span class="lesson-en">Adult Course</span>
+          <span class="lesson-icon">🎤</span>
+          <h3>声楽コース</h3>
+          <span class="lesson-en">Vocal Course</span>
           <p>
-            趣味で楽しみたい方、弾きたい曲がある方、
-            昔習っていて再開したい方など、目的に合わせた
-            丁寧なレッスンをご提供します。
+            正しい発声・呼吸法から表現力まで、
+            丁寧に指導します。
+            歌うことが好きな方、もっと上手く歌いたい方、
+            ぜひお気軽にご相談ください。
           </p>
-          <span class="lesson-age">対象：高校生〜シニアの方</span>
+          <span class="lesson-age">不定期開講・詳細はお問い合わせを</span>
         </div>
         <div class="lesson-card fade-in">
-          <span class="lesson-icon">🏆</span>
-          <h3>コンクール対策コース</h3>
-          <span class="lesson-en">Competition Course</span>
+          <span class="lesson-icon">🎟️</span>
+          <h3>チケット制レッスン</h3>
+          <span class="lesson-en">Ticket Lesson</span>
           <p>
-            コンクール入賞を目指す方のための専門コース。
-            本番に向けた選曲・解釈・表現のすべてを
-            丁寧にサポートします。
+            「月謝制はちょっと…」という方や、
+            スケジュールが不規則な方に。
+            都合の良いときにレッスンを受けられる、
+            柔軟なチケット制をご用意しています。
           </p>
-          <span class="lesson-age">対象：子ども〜大人</span>
+          <span class="lesson-age">その他・詳細はお問い合わせを</span>
         </div>
       </div>
     </div>
@@ -1107,49 +1195,17 @@
         <h2 class="section-title">料金のご案内</h2>
         <div class="section-divider"></div>
       </div>
-      <p class="price-note fade-in">すべての料金は月謝制・税込表示です</p>
-      <div class="fade-in">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>コース</th>
-              <th>レッスン回数</th>
-              <th>時間</th>
-              <th>月謝</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>子どもピアノコース（幼児）</td>
-              <td>月3回</td>
-              <td>30分</td>
-              <td class="price-amount">¥7,000〜</td>
-            </tr>
-            <tr>
-              <td>子どもピアノコース（小学生）</td>
-              <td>月3回</td>
-              <td>45分</td>
-              <td class="price-amount">¥7,000〜</td>
-            </tr>
-            <tr>
-              <td>大人ピアノコース（趣味）</td>
-              <td>月2〜3回</td>
-              <td>45分</td>
-              <td class="price-amount">¥7,000〜</td>
-            </tr>
-            <tr>
-              <td>コンクール対策コース</td>
-              <td>月3〜4回</td>
-              <td>60分</td>
-              <td class="price-amount">¥7,000〜</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="price-simple-wrap fade-in">
+        <div class="price-simple-card">
+          <p class="price-simple-label">月謝</p>
+          <p class="price-simple-amount">¥8,000<span>（税込）〜</span></p>
+          <p class="price-simple-note">コース・レッスン内容により異なります。<br>詳しくは体験レッスン時またはお問い合わせにてご案内いたします。</p>
+        </div>
         <ul class="price-caption">
-          <li>月謝は¥7,000〜（コース・回数により異なります）</li>
-          <li>詳しい料金はお問い合わせまたは体験レッスン時にご案内いたします</li>
-          <li>振替レッスン対応あり</li>
-          <li>体験レッスン（30分）は無料です。お気軽にご参加ください</li>
+          <li>ピアノコースは年42回のレッスンです</li>
+          <li>声楽コース・チケット制レッスンの料金は別途ご案内します</li>
+          <li>入会金あり（詳細はお問い合わせください）</li>
+          <li>無料体験レッスン（30分）実施中。お気軽にどうぞ</li>
         </ul>
       </div>
     </div>
@@ -1280,7 +1336,7 @@
               <span class="access-item-icon">🚉</span>
               <div>
                 <span class="access-item-label">Station</span>
-                <span class="access-item-value">つくばエクスプレス「みどりの駅」より徒歩圏内</span>
+                <span class="access-item-value">つくばエクスプレス「みどりの駅」より徒歩8分</span>
               </div>
             </div>
             <div class="access-item">
@@ -1321,46 +1377,33 @@
           <h3>無料体験レッスン受付中</h3>
           <p>まずはお気軽に30分の無料体験レッスンをお試しください</p>
         </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>お名前<span class="required">*</span></label>
-              <input type="text" placeholder="山田 花子" required />
+        <div class="contact-methods">
+          <a href="https://lin.ee/XXXXXXX" target="_blank" class="contact-method-card contact-line">
+            <div class="contact-method-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M16 3C9.373 3 4 7.477 4 13c0 3.178 1.74 6.01 4.47 7.876-.196.732-.74 2.65-.848 3.063-.133.51.187.503.393.366.162-.109 2.573-1.739 3.614-2.444A13.8 13.8 0 0016 22c6.627 0 12-4.477 12-10S22.627 3 16 3z" fill="white"/>
+              </svg>
             </div>
-            <div class="form-group">
-              <label>フリガナ<span class="required">*</span></label>
-              <input type="text" placeholder="ヤマダ ハナコ" required />
+            <div class="contact-method-text">
+              <span class="contact-method-label">公式LINEで問い合わせる</span>
+              <span class="contact-method-sub">トークからお気軽にどうぞ</span>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>メールアドレス<span class="required">*</span></label>
-              <input type="email" placeholder="example@email.com" required />
+            <span class="contact-method-arrow">→</span>
+          </a>
+          <a href="tel:08035640782" class="contact-method-card contact-tel">
+            <div class="contact-method-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor"/>
+              </svg>
             </div>
-            <div class="form-group">
-              <label>お電話番号</label>
-              <input type="tel" placeholder="000-0000-0000" />
+            <div class="contact-method-text">
+              <span class="contact-method-label">お電話でのお問い合わせ</span>
+              <span class="contact-method-sub">080-3564-0782</span>
             </div>
-          </div>
-          <div class="form-group">
-            <label>ご希望のコース</label>
-            <select>
-              <option value="">選択してください</option>
-              <option>子どもピアノコース（幼児）</option>
-              <option>子どもピアノコース（小学生）</option>
-              <option>大人ピアノコース（趣味）</option>
-              <option>コンクール対策コース</option>
-              <option>まだ決まっていない</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>ご質問・ご要望</label>
-            <textarea placeholder="ご自由にご記入ください"></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit">送信する — Send</button>
-          </div>
-        </form>
+            <span class="contact-method-arrow">→</span>
+          </a>
+        </div>
+        <p class="contact-note">体験レッスンのご予約・ご質問など、どちらからでもお気軽にご連絡ください。</p>
       </div>
     </div>
   </section>
