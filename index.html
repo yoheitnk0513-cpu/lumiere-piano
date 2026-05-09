@@ -544,18 +544,17 @@
     .teacher-photo-inner {
       width: 100%;
       aspect-ratio: 3/4;
-      background: linear-gradient(145deg, var(--pink-light), var(--pink));
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .teacher-photo-logo {
-      width: 55%;
-      opacity: 0.3;
+    .teacher-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .teacher-photo-deco {
@@ -1150,14 +1149,7 @@
       <div class="teacher-grid">
         <div class="teacher-photo fade-in">
           <div class="teacher-photo-inner">
-            <svg class="teacher-photo-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M58 18 L60 26 L68 28 L60 30 L58 38 L56 30 L48 28 L56 26 Z" fill="white"/>
-              <rect x="49" y="34" width="4" height="34" rx="2" fill="white"/>
-              <circle cx="58" cy="36" r="9" fill="white"/>
-              <circle cx="38" cy="44" r="7" fill="white" opacity="0.65"/>
-              <path d="M53 55 Q70 48 72 62 Q60 66 53 55Z" fill="white"/>
-              <path d="M51 60 Q34 53 32 67 Q44 71 51 60Z" fill="white"/>
-            </svg>
+            <img src="teacher.jpg" alt="田中恵子 講師" />
           </div>
           <div class="teacher-photo-deco"></div>
         </div>
