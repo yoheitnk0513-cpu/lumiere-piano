@@ -532,100 +532,117 @@
     /* ===== TEACHER ===== */
     #teacher { background: linear-gradient(180deg, var(--rose-bg) 0%, var(--white) 100%); }
 
-    .teacher-grid {
+    .teacher-cards {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 70px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
 
-    .teacher-photo { position: sticky; top: 100px; }
+    .teacher-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(196,122,138,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-    .teacher-photo-inner {
+    .teacher-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(196,122,138,0.15);
+    }
+
+    .teacher-card-photo {
       width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 16px;
+      aspect-ratio: 4/3;
       overflow: hidden;
       position: relative;
     }
 
-    .teacher-photo-inner img {
+    .teacher-card-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
+      transition: transform 0.5s;
     }
 
-    .teacher-photo-deco {
+    .teacher-card:hover .teacher-card-photo img { transform: scale(1.03); }
+
+    .teacher-card-badge {
       position: absolute;
-      top: 12px; right: -12px;
-      width: 75%; height: 75%;
-      border: 1.5px solid rgba(232,160,180,0.5);
-      border-radius: 16px;
-      z-index: -1;
+      top: 16px; left: 16px;
+      background: var(--pink);
+      color: var(--white);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      padding: 5px 14px;
+      border-radius: 20px;
     }
 
-    .teacher-content h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 300;
-      color: var(--charcoal);
+    .teacher-card-body { padding: 32px 36px 36px; }
+
+    .teacher-name-ruby {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--brown-light);
+      display: block;
       margin-bottom: 4px;
     }
 
-    .teacher-name-ruby {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      color: var(--brown-light);
+    .teacher-card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 300;
+      color: var(--charcoal);
       margin-bottom: 6px;
-      display: block;
     }
 
     .teacher-title-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.24em;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
       color: var(--pink-deep);
       text-transform: uppercase;
-      margin-bottom: 26px;
       display: block;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--pink-light);
     }
 
     .teacher-bio {
-      font-size: 0.91rem;
+      font-size: 0.88rem;
       color: var(--brown);
-      line-height: 2.2;
-      margin-bottom: 34px;
+      line-height: 2.1;
+      margin-bottom: 22px;
     }
 
     .teacher-history h4 {
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       color: var(--pink-deep);
       text-transform: uppercase;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1.5px solid var(--pink-light);
+      margin-bottom: 14px;
     }
 
-    .history-list { display: flex; flex-direction: column; gap: 14px; }
+    .history-list { display: flex; flex-direction: column; gap: 10px; }
 
     .history-item {
       display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 18px;
-      font-size: 0.87rem;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      font-size: 0.82rem;
     }
 
     .history-year {
       font-family: 'Cormorant Garamond', serif;
       color: var(--pink-deep);
-      font-size: 0.9rem;
-      padding-top: 2px;
+      font-size: 0.86rem;
+      padding-top: 1px;
+      flex-shrink: 0;
     }
 
-    .history-desc { color: var(--brown); }
+    .history-desc { color: var(--brown); line-height: 1.7; }
 
     /* ===== ACCESS ===== */
     #access { background: var(--charcoal); color: var(--white); }
@@ -877,8 +894,8 @@
       .scroll-indicator { display: none; }
 
       .concept-grid,
-      .teacher-grid,
-      .access-grid { grid-template-columns: 1fr; gap: 36px; }
+      .teacher-cards,
+      .access-grid { grid-template-columns: 1fr; gap: 28px; }
 
       .lessons-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -1142,59 +1159,97 @@
   <section id="teacher">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-tag">Instructor</span>
+        <span class="section-tag">Instructors</span>
         <h2 class="section-title">講師プロフィール</h2>
         <div class="section-divider"></div>
+        <p class="section-lead">経験豊かな2名の講師が、お子さまの成長を丁寧に見守ります。</p>
       </div>
-      <div class="teacher-grid">
-        <div class="teacher-photo fade-in">
-          <div class="teacher-photo-inner">
-            <img src="teacher.jpg" alt="田中恵子 講師" />
+      <div class="teacher-cards">
+
+        <!-- 田中恵子 -->
+        <div class="teacher-card fade-in">
+          <div class="teacher-card-photo">
+            <img src="teacher.jpg" alt="田中恵子 主宰講師" />
+            <span class="teacher-card-badge">主宰講師</span>
           </div>
-          <div class="teacher-photo-deco"></div>
-        </div>
-        <div class="teacher-content fade-in">
-          <span class="teacher-name-ruby">たなか けいこ</span>
-          <h3>田中 恵子</h3>
-          <span class="teacher-title-en">Piano Instructor / Singer-Songwriter / Lumiere Music School</span>
-          <p class="teacher-bio">
-            3歳よりピアノを始め、東京音楽大学卒業。同大学院別科修了。
-            卒業演奏会に出演。これまでに小島明子氏、奈良場恒美氏、岸邉眞知子氏に師事。<br><br>
-            卒業後は、CASIO楽器イベントプレーヤーとして全国各地で演奏活動を行うほか、
-            ピアノ講師・保育園でのリトミック講師として指導経験を積む。<br><br>
-            結婚・出産を機につくば市みどりのにて「Lumiere音楽教室」を開校。
-            現在は、うしくFM「EmilyのMusic Cafe」メインパーソナリティとしても活動中。
-          </p>
-          <div class="teacher-history">
-            <h4>Career &amp; Awards</h4>
-            <div class="history-list">
-              <div class="history-item">
-                <span class="history-year">大学</span>
-                <span class="history-desc">東京音楽大学 卒業・同大学院別科修了／卒業演奏会出演</span>
-              </div>
-              <div class="history-item">
-                <span class="history-year">2014</span>
-                <span class="history-desc">CASIOよりシンガーソングライターとしてデビュー</span>
-              </div>
-              <div class="history-item">
-                <span class="history-year">2015</span>
-                <span class="history-desc">第12回「ベストデビュタント・オブ・ザ・イヤー2015」音楽部門受賞<br>アルバム『Compass』iTunes Jazzランキング 1位獲得</span>
-              </div>
-              <div class="history-item">
-                <span class="history-year">2018</span>
-                <span class="history-desc">アルバム『Restore』リリース・中国13都市＋台湾ツアー開催<br>iTunes Jazzランキング 再び1位獲得</span>
-              </div>
-              <div class="history-item">
-                <span class="history-year">2021</span>
-                <span class="history-desc">リトミックどれみ認定講師資格取得<br>Lumiere音楽教室 開校</span>
-              </div>
-              <div class="history-item">
-                <span class="history-year">現在</span>
-                <span class="history-desc">うしくFM「EmilyのMusic Cafe」メインパーソナリティ<br>演奏活動・後進の指導に注力</span>
+          <div class="teacher-card-body">
+            <span class="teacher-name-ruby">たなか けいこ</span>
+            <h3>田中 恵子</h3>
+            <span class="teacher-title-en">Piano / Rhythmics · Founder</span>
+            <p class="teacher-bio">
+              3歳よりピアノを始め、東京音楽大学卒業・同大学院別科修了。
+              卒業後はCASIO楽器イベントプレーヤーとして全国で演奏活動を行い、
+              2014年にシンガーソングライターとしてデビュー。
+              アルバム『Compass』『Restore』でiTunes Jazzランキング1位を2度獲得。
+              中国13都市・台湾ツアーも開催。結婚・出産を機に当教室を開校。
+              現在はうしくFM「EmilyのMusic Cafe」パーソナリティとしても活躍中。
+            </p>
+            <div class="teacher-history">
+              <h4>Career &amp; Awards</h4>
+              <div class="history-list">
+                <div class="history-item">
+                  <span class="history-year">2014</span>
+                  <span class="history-desc">CASIOよりシンガーソングライターデビュー</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">2015</span>
+                  <span class="history-desc">「ベストデビュタント・オブ・ザ・イヤー2015」音楽部門受賞<br>iTunes Jazz 1位（アルバム『Compass』）</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">2018</span>
+                  <span class="history-desc">中国13都市・台湾ツアー／iTunes Jazz 再び1位</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">2021</span>
+                  <span class="history-desc">リトミックどれみ認定講師資格取得・当教室開校</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- 中村美保 -->
+        <div class="teacher-card fade-in">
+          <div class="teacher-card-photo">
+            <img src="teacher2.jpg" alt="中村美保 講師" />
+            <span class="teacher-card-badge">講師</span>
+          </div>
+          <div class="teacher-card-body">
+            <span class="teacher-name-ruby">なかむら みほ</span>
+            <h3>中村 美保</h3>
+            <span class="teacher-title-en">Piano Instructor</span>
+            <p class="teacher-bio">
+              5歳よりピアノを始める。茨城県立取手松陽高等学校音楽科を経て、
+              国立音楽大学音楽学部演奏学科を卒業。
+              大学卒業後、音楽教室にてピアノ講師として勤務。
+              N響団友オーケストラ等との共演経験有り。
+              これまでにピアノを登坂睦子、須賀香奈子、大畑知子、堀江志磨の各氏に師事。
+              現在、後進の指導にあたる傍ら伴奏活動も行う。
+            </p>
+            <div class="teacher-history">
+              <h4>Education &amp; Career</h4>
+              <div class="history-list">
+                <div class="history-item">
+                  <span class="history-year">学歴</span>
+                  <span class="history-desc">茨城県立取手松陽高等学校 音楽科</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">大学</span>
+                  <span class="history-desc">国立音楽大学 音楽学部 演奏学科 卒業</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">共演</span>
+                  <span class="history-desc">N響団友オーケストラ等との共演経験</span>
+                </div>
+                <div class="history-item">
+                  <span class="history-year">現在</span>
+                  <span class="history-desc">ピアノ指導・伴奏活動</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
