@@ -105,6 +105,30 @@
 
     .nav-contact-btn:hover { background: var(--pink-deep) !important; }
 
+    /* ===== NAV SNS ===== */
+    .nav-sns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 12px;
+    }
+
+    .nav-sns-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .nav-sns-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .nav-sns-line { background: #06C755; }
+    .nav-sns-insta { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
     /* ===== HERO ===== */
     #hero {
       min-height: 100vh;
@@ -1079,6 +1103,20 @@
       <li><a href="#access">アクセス</a></li>
       <li><a href="#contact" class="nav-contact-btn">お問い合わせ</a></li>
     </ul>
+    <div class="nav-sns">
+      <a href="https://lin.ee/uSrKNob" target="_blank" class="nav-sns-btn nav-sns-line" aria-label="LINE">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+          <path d="M16 3C9.373 3 4 7.477 4 13c0 3.178 1.74 6.01 4.47 7.876-.196.732-.74 2.65-.848 3.063-.133.51.187.503.393.366.162-.109 2.573-1.739 3.614-2.444A13.8 13.8 0 0016 22c6.627 0 12-4.477 12-10S22.627 3 16 3z" fill="white"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/lumiere.musicstudio?igsh=eTZneW5lcGYzaWdt" target="_blank" class="nav-sns-btn nav-sns-insta" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+        </svg>
+      </a>
+    </div>
     <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </div>
