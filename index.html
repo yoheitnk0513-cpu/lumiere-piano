@@ -962,10 +962,10 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      nav { padding: 14px 24px; }
+      /* Nav */
+      nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -978,49 +978,80 @@
         z-index: 99;
       }
 
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 100px 24px 56px; }
-      .hero-right { height: 260px; }
-      .scroll-indicator { display: none; }
-
-      .concept-grid,
-      .teacher-cards,
-      .access-grid { grid-template-columns: 1fr; gap: 28px; }
-
-      .lessons-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-
-      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-      section { padding: 68px 0; }
-      .teacher-photo { position: static; }
-
-      /* Contact ボタン */
-      .contact-method-card {
-        padding: 16px 18px;
-        gap: 14px;
-      }
-      .contact-method-icon {
-        width: 42px; height: 42px;
-        flex-shrink: 0;
-      }
-      .contact-method-label {
-        font-size: 0.88rem;
-        line-height: 1.4;
-      }
-      .contact-method-sub {
-        font-size: 0.75rem;
-      }
-      .contact-tel .contact-method-sub {
-        font-size: 0.95rem;
-      }
-      .contact-method-arrow { font-size: 1rem; }
-
-      /* Hero ボタン */
-      .hero-buttons { flex-direction: column; gap: 12px; }
-      .btn-primary, .btn-outline { text-align: center; padding: 14px 28px; font-size: 0.85rem; }
-
-      /* Section */
+      /* Container */
       .container { padding: 0 20px; }
+      section { padding: 60px 0; }
+
+      /* Hero */
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 90px 20px 48px; }
+      .hero-right { height: 220px; }
+      .scroll-indicator { display: none; }
+      .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .hero-subtitle-jp { font-size: 0.9rem; }
+      .hero-desc { font-size: 0.88rem; max-width: 100%; }
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .btn-primary, .btn-outline {
+        text-align: center;
+        padding: 14px 24px;
+        font-size: 0.85rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Section header */
+      .section-title { font-size: clamp(1.5rem, 5vw, 2rem); word-break: keep-all; }
+      .section-lead { font-size: 0.88rem; }
+
+      /* Concept */
+      .concept-grid { grid-template-columns: 1fr; gap: 32px; }
+      .concept-image-box { max-width: 280px; margin: 0 auto; }
+      .concept-text h3 { font-size: 1.5rem; }
+      .concept-text h4 { font-size: 0.95rem; }
+      .concept-text p { font-size: 0.88rem; }
+
+      /* Lessons */
+      .lessons-grid { grid-template-columns: 1fr; gap: 16px; }
+      .lesson-card { padding: 28px 22px; }
+
+      /* Price */
+      .price-simple-card { padding: 36px 24px; }
+      .price-simple-amount { font-size: 3rem; }
+
+      /* Teacher */
+      .teacher-cards { grid-template-columns: 1fr; gap: 28px; }
+      .teacher-photo { position: static; }
+      .teacher-card-body { padding: 24px 20px 28px; }
+      .teacher-card-body h3 { font-size: 1.4rem; }
+      .teacher-bio { font-size: 0.85rem; }
+      .history-item { grid-template-columns: 64px 1fr; font-size: 0.78rem; }
+
+      /* Access */
+      .access-grid { grid-template-columns: 1fr; gap: 24px; }
+      .access-item-value { font-size: 0.88rem; word-break: keep-all; }
+
+      /* Contact */
+      .contact-method-card { padding: 16px 16px; gap: 12px; }
+      .contact-method-icon { width: 40px; height: 40px; flex-shrink: 0; }
+      .contact-method-label { font-size: 0.88rem; line-height: 1.4; }
+      .contact-method-sub { font-size: 0.75rem; }
+      .contact-tel .contact-method-sub { font-size: 0.92rem; }
+      .contact-method-arrow { font-size: 1rem; }
+      .trial-banner { padding: 28px 20px; }
+      .trial-banner h3 { font-size: 1.2rem; }
+
+      /* Footer */
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand-name { font-size: 1.4rem; }
+      .footer-nav ul { gap: 10px; }
+    }
+
+    /* スマホ小 (375px以下) */
+    @media (max-width: 400px) {
+      .hero-title { font-size: 1.85rem; }
+      .contact-method-label { font-size: 0.82rem; }
+      .contact-method-icon { width: 36px; height: 36px; }
+      .contact-method-icon svg { width: 20px; height: 20px; }
     }
 
     /* ===== FADE-IN ===== */
