@@ -30,6 +30,8 @@
       background: var(--rose-bg);
       color: var(--charcoal);
       line-height: 1.8;
+      word-break: auto-phrase;
+      overflow-wrap: anywhere;
     }
 
     /* ===== LOGO SVG ===== */
@@ -1079,6 +1081,25 @@
       .contact-method-label { font-size: 0.82rem; }
       .contact-method-icon { width: 36px; height: 36px; }
       .contact-method-icon svg { width: 20px; height: 20px; }
+    }
+
+    /* 日本語テキスト孤立文字対策 */
+    @media (max-width: 900px) {
+      p, li, .teacher-bio, .hero-desc, .section-lead,
+      .concept-text p, .lesson-card p, .access-item-value,
+      .teacher-name-ruby, .history-desc, .contact-note,
+      .price-simple-note, .footer-brand-desc {
+        word-break: auto-phrase;
+        overflow-wrap: anywhere;
+        letter-spacing: 0.02em;
+      }
+      .hero-subtitle-jp,
+      .section-title,
+      .concept-text h4 {
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        letter-spacing: 0.04em;
+      }
     }
 
     /* ===== FADE-IN ===== */
