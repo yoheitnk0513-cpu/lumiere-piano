@@ -1012,9 +1012,9 @@
       section { padding: 60px 0; }
 
       /* Hero */
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 90px 20px 48px; }
-      .hero-right { height: 220px; }
+      #hero { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column; }
+      .hero-right { order: -1; height: 260px; }
+      .hero-left { padding: 32px 20px 48px; }
       .scroll-indicator { display: none; }
       .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
       .hero-subtitle-jp { font-size: 0.9rem; }
