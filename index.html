@@ -3,7 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumiere 音楽教室 | 光あふれる音楽の場所</title>
+  <title>Lumiere 音楽教室 | つくば市みどりの ピアノ・声楽教室</title>
+  <meta name="description" content="つくば市みどりの駅徒歩8分のピアノ・声楽教室。iTunes Jazzランキング1位の講師が、お子さまから大人まで一人ひとりの輝きを育てます。体験レッスン受付中。" />
+  <meta property="og:title" content="Lumiere 音楽教室 | つくば市みどりの ピアノ・声楽教室" />
+  <meta property="og:description" content="つくば市みどりの駅徒歩8分のピアノ・声楽教室。体験レッスン受付中。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="IMG_2332.JPG" />
+  <meta name="theme-color" content="#FBF4F6" />
+  <link rel="icon" type="image/jpeg" href="IMG_2332.JPG" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicSchool",
+    "name": "Lumiere 音楽教室",
+    "description": "つくば市みどりののピアノ・声楽教室",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "つくば市",
+      "addressRegion": "茨城県",
+      "streetAddress": "みどりの2丁目"
+    },
+    "telephone": "070-9373-0640",
+    "openingHours": ["Mo-Fr 14:00-21:00", "Sa 09:30-19:00"],
+    "url": "https://lumiere-piano.lumi-works.workers.dev"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
@@ -24,6 +48,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 76px; }
 
     body {
       font-family: 'Noto Serif JP', 'Shippori Mincho', serif;
@@ -1338,7 +1363,7 @@
         <!-- 田中恵子 -->
         <div class="teacher-card fade-in">
           <div class="teacher-card-photo">
-            <img src="teacher.jpg" alt="田中恵子 主宰講師" />
+            <img src="teacher.jpg" alt="田中恵子 主宰講師" loading="lazy" />
             <span class="teacher-card-badge">主宰講師</span>
           </div>
           <div class="teacher-card-body">
@@ -1380,7 +1405,7 @@
         <!-- 中村美保 -->
         <div class="teacher-card fade-in">
           <div class="teacher-card-photo">
-            <img src="teacher2.jpg" alt="中村美保 講師" />
+            <img src="teacher2.jpg" alt="中村美保 講師" loading="lazy" />
             <span class="teacher-card-badge">ピアノ講師</span>
           </div>
           <div class="teacher-card-body">
@@ -1417,7 +1442,7 @@
         <!-- 赤井悦子 -->
         <div class="teacher-card fade-in">
           <div class="teacher-card-photo">
-            <img src="teacher3.jpg" alt="赤井悦子 声楽講師" />
+            <img src="teacher3.jpg" alt="赤井悦子 声楽講師" loading="lazy" />
             <span class="teacher-card-badge">声楽講師</span>
           </div>
           <div class="teacher-card-body">
@@ -1502,7 +1527,7 @@
               <span class="access-item-icon">📞</span>
               <div>
                 <span class="access-item-label">Contact</span>
-                <span class="access-item-value">070-9373-0640</span>
+                <span class="access-item-value"><a href="tel:07093730640" style="color: inherit; text-decoration: none;">070-9373-0640</a></span>
               </div>
             </div>
           </div>
@@ -1612,7 +1637,6 @@
         <ul>
           <li><a href="#contact">お問い合わせ</a></li>
           <li><a href="#contact">体験申込</a></li>
-          <li><a href="#">プライバシーポリシー</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1631,7 +1655,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 Lumiere 音楽教室. All Rights Reserved.</p>
+      <p>© 2026 Lumiere 音楽教室. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -1639,6 +1663,13 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    // メニューのリンクを押したら自動で閉じる（スマホ用）
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1650,12 +1681,6 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('お問い合わせありがとうございます。\n2営業日以内にご連絡いたします。');
-      e.target.reset();
-    }
 
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('mainNav');
