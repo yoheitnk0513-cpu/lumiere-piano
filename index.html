@@ -1175,6 +1175,16 @@
       white-space: nowrap;
     }
     .news-text { color: var(--brown); line-height: 1.8; }
+    a.news-item-link {
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    a.news-item-link:hover { background: var(--pink-pale); }
+    .news-arrow {
+      margin-left: auto;
+      color: var(--pink-deep);
+      flex-shrink: 0;
+    }
     @media (max-width: 768px) {
       .news-item { flex-wrap: wrap; gap: 10px; padding: 16px 4px; }
       .news-text { width: 100%; font-size: 0.86rem; }
@@ -1753,13 +1763,18 @@
           .sort((a, b) => b.date.localeCompare(a.date))
           .slice(0, 5)
           .forEach(item => {
-            const row = document.createElement('div');
+            const row = document.createElement(item.link ? 'a' : 'div');
             row.className = 'news-item';
+            if (item.link) {
+              row.href = item.link;
+              row.classList.add('news-item-link');
+            }
             const d = item.date.replaceAll('-', '.');
             row.innerHTML =
               '<span class="news-date">' + d + '</span>' +
               '<span class="news-badge"></span>' +
-              '<span class="news-text"></span>';
+              '<span class="news-text"></span>' +
+              (item.link ? '<span class="news-arrow">→</span>' : '');
             row.querySelector('.news-badge').textContent = item.category;
             row.querySelector('.news-text').textContent = item.text;
             list.appendChild(row);
