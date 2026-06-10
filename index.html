@@ -1138,6 +1138,47 @@
     }
 
     .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ===== NEWS ===== */
+    #news { padding: 70px 0; background: var(--white); }
+    .news-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-item {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 18px 8px;
+      border-bottom: 1px solid var(--pink-light);
+      font-size: 0.9rem;
+    }
+    .news-item:first-child { border-top: 1px solid var(--pink-light); }
+    .news-date {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--pink-deep);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+    .news-badge {
+      flex-shrink: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--pink-dark);
+      background: var(--pink-pale);
+      border: 1px solid var(--pink-light);
+      border-radius: 20px;
+      padding: 3px 12px;
+      white-space: nowrap;
+    }
+    .news-text { color: var(--brown); line-height: 1.8; }
+    @media (max-width: 768px) {
+      .news-item { flex-wrap: wrap; gap: 10px; padding: 16px 4px; }
+      .news-text { width: 100%; font-size: 0.86rem; }
+    }
   </style>
 </head>
 <body>
@@ -1148,6 +1189,7 @@
       <img src="IMG_2332.JPG" alt="Lumiere 音楽教室" class="logo-svg">
     </a>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#news">お知らせ</a></li>
       <li><a href="#concept">コンセプト</a></li>
       <li><a href="#lessons">レッスン</a></li>
       <li><a href="#price">料金</a></li>
@@ -1224,6 +1266,18 @@
       </div>
       <div class="hero-circle hero-circle-1"></div>
       <div class="hero-circle hero-circle-2"></div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">News</span>
+        <h2 class="section-title">お知らせ</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="news-list fade-in" id="newsList"></div>
     </div>
   </section>
 
@@ -1625,6 +1679,7 @@
       <div class="footer-col">
         <h4>Menu</h4>
         <ul>
+          <li><a href="#news">お知らせ</a></li>
           <li><a href="#concept">コンセプト</a></li>
           <li><a href="#lessons">レッスン</a></li>
           <li><a href="#price">料金</a></li>
@@ -1688,6 +1743,31 @@
         ? '0 4px 20px rgba(196,122,138,0.1)'
         : 'none';
     });
+
+    // お知らせを news.json から読み込んで表示（新しい順・最大5件）
+    fetch('news.json')
+      .then(res => res.json())
+      .then(items => {
+        const list = document.getElementById('newsList');
+        items
+          .sort((a, b) => b.date.localeCompare(a.date))
+          .slice(0, 5)
+          .forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'news-item';
+            const d = item.date.replaceAll('-', '.');
+            row.innerHTML =
+              '<span class="news-date">' + d + '</span>' +
+              '<span class="news-badge"></span>' +
+              '<span class="news-text"></span>';
+            row.querySelector('.news-badge').textContent = item.category;
+            row.querySelector('.news-text').textContent = item.text;
+            list.appendChild(row);
+          });
+      })
+      .catch(() => {
+        document.getElementById('news').style.display = 'none';
+      });
   </script>
 </body>
 </html>
